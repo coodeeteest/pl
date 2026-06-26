@@ -9,54 +9,47 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{-webkit-text-size-adjust:100%;}
-body{
-  font-family:'Inter',-apple-system,sans-serif;
-  min-height:100vh;
-  background:radial-gradient(ellipse at 20% 10%,#1a1060 0%,#0d0b1e 45%,#060412 100%);
-  color:#e8eaf6;
-  padding:0;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-  display:flex;justify-content:center;
-}
+body{font-family:'Inter',-apple-system,sans-serif;min-height:100vh;background:radial-gradient(ellipse at 20% 10%,#1a1060 0%,#0d0b1e 45%,#060412 100%);color:#e8eaf6;padding:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;display:flex;justify-content:center;}
 .app-shell{width:100%;max-width:480px;margin:0 auto;display:flex;flex-direction:column;min-height:100vh;}
 
 /* ── TOPBAR ── */
-#topbar{
-  position:sticky;top:0;z-index:300;
-  background:rgba(10,8,30,.92);
-  backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
-  border-bottom:1px solid rgba(255,255,255,.10);
-  box-shadow:0 4px 24px rgba(0,0,0,.4);
-  width:100%;
-}
-.tb-top{padding:max(calc(env(safe-area-inset-top,0px)+8px),16px) 16px 0;}
-.tb-row1{height:48px;display:flex;align-items:center;justify-content:space-between;}
-.brand{font-size:18px;font-weight:800;letter-spacing:-1px;color:#fff;text-decoration:none;display:flex;align-items:center;gap:6px;}
+#topbar{position:sticky;top:0;z-index:300;background:rgba(10,8,30,.92);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.10);box-shadow:0 4px 24px rgba(0,0,0,.4);width:100%;}
+.tb-top{padding:max(calc(env(safe-area-inset-top,0px)+8px),16px) 12px 0;}
+.tb-row1{height:48px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.brand{font-size:18px;font-weight:800;letter-spacing:-1px;color:#fff;text-decoration:none;display:flex;align-items:center;gap:6px;flex-shrink:0;}
 .brand-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#818cf8,#c084fc);}
-.tb-r{display:flex;align-items:center;gap:8px;}
-.u-pill{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:4px 10px 4px 4px;border-radius:40px;}
-.u-av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;}
-.u-name{font-size:12px;font-weight:600;color:rgba(255,255,255,.85);}
-.lb{width:32px;height:32px;border-radius:9px;cursor:pointer;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.18);color:#f87171;display:flex;align-items:center;justify-content:center;font-size:13px;transition:background .15s;}
-.lb:hover{background:rgba(239,68,68,.2);}
+.tb-r{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.u-pill{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:4px 10px 4px 4px;border-radius:40px;max-width:140px;}
+.u-av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;}
+.u-name{font-size:12px;font-weight:600;color:rgba(255,255,255,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.u-role-badge{font-size:9px;padding:1px 7px;border-radius:20px;font-weight:700;flex-shrink:0;}
+.u-role-badge.admin{background:rgba(165,180,252,.15);color:#a5b4fc;border:1px solid rgba(165,180,252,.25);}
+.u-role-badge.user{background:rgba(52,211,153,.1);color:#34d399;border:1px solid rgba(52,211,153,.2);}
+/* Logout */
+.lb{height:32px;border-radius:9px;cursor:pointer;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.18);color:#f87171;display:flex;align-items:center;justify-content:center;gap:5px;font-size:11px;font-weight:600;padding:0 10px;transition:background .15s;white-space:nowrap;}
+.lb:hover{background:rgba(239,68,68,.18);}
+.lb i{font-size:12px;}
 
 /* ── NAV BAR ── */
-.nav-bar{display:flex;align-items:center;gap:2px;padding:8px 12px 10px;overflow-x:auto;scrollbar-width:none;}
+.nav-bar{display:flex;align-items:center;gap:2px;padding:8px 8px 10px;overflow-x:auto;scrollbar-width:none;}
 .nav-bar::-webkit-scrollbar{display:none;}
-.nav-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 10px;border:none;background:transparent;color:rgba(255,255,255,.38);font-size:9px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;cursor:pointer;border-radius:10px;transition:all .15s;font-family:'Inter',sans-serif;flex-shrink:0;min-width:54px;}
-.nav-btn i{font-size:16px;transition:all .15s;}
+.nav-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;border:none;background:transparent;color:rgba(255,255,255,.38);font-size:9px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;cursor:pointer;border-radius:10px;transition:all .15s;font-family:'Inter',sans-serif;flex-shrink:0;min-width:50px;}
+.nav-btn i{font-size:15px;transition:all .15s;}
 .nav-btn.active{background:rgba(99,102,241,.18);color:#a5b4fc;border:1px solid rgba(99,102,241,.3);}
 .nav-btn.active i{color:#818cf8;filter:drop-shadow(0 0 6px #6366f1);}
 .nav-btn:hover:not(.active){background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);}
 .nav-admin-only{display:none;}
+
+/* ── READ-ONLY BANNER ── */
+.readonly-banner{display:flex;align-items:center;gap:8px;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.18);border-radius:12px;padding:9px 14px;margin-bottom:12px;font-size:11px;color:rgba(253,230,138,.7);font-weight:500;}
+.readonly-banner i{color:#fbbf24;font-size:12px;flex-shrink:0;}
 
 /* ── PAGE ── */
 .pw{flex:1;padding:16px 14px 32px;}
 .view{display:none;}
 .view.active{display:block;}
 .page-title{font-size:22px;font-weight:700;letter-spacing:-.6px;color:#fff;margin-bottom:4px;}
-.page-sub{font-size:13px;color:rgba(255,255,255,.38);margin-bottom:20px;}
+.page-sub{font-size:13px;color:rgba(255,255,255,.38);margin-bottom:16px;}
 .back-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(160,140,255,.3);color:#b8a8ff;border-radius:50px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:18px;transition:all .18s;}
 .back-btn:hover{background:rgba(140,120,255,.15);}
 
@@ -64,7 +57,7 @@ body{
 .card{background:rgba(255,255,255,.10);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:20px;box-shadow:0 8px 32px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.15);}
 
 /* ── HERO ── */
-.hero-card{background:rgba(255,255,255,.10);backdrop-filter:blur(40px) saturate(190%);-webkit-backdrop-filter:blur(40px) saturate(190%);border:1px solid rgba(255,255,255,.22);border-radius:26px;box-shadow:0 20px 50px rgba(99,102,241,.18),inset 0 1px 0 rgba(255,255,255,.18);padding:22px 22px 20px;position:relative;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-bottom:12px;}
+.hero-card{background:rgba(255,255,255,.10);backdrop-filter:blur(40px) saturate(190%);-webkit-backdrop-filter:blur(40px) saturate(190%);border:1px solid rgba(255,255,255,.22);border-radius:26px;box-shadow:0 20px 50px rgba(99,102,241,.18),inset 0 1px 0 rgba(255,255,255,.18);padding:22px 22px 20px;position:relative;overflow:hidden;cursor:pointer;transition:transform .2s;margin-bottom:12px;}
 .hero-card:hover{transform:translateY(-3px);}
 .hero-card::before{content:'';position:absolute;top:-50px;right:-50px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(165,180,252,.12),transparent 70%);}
 .hero-lbl{font-size:10px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:rgba(165,180,252,.55);margin-bottom:8px;}
@@ -75,6 +68,9 @@ body{
 .hl{font-size:9px;font-weight:500;color:rgba(165,180,252,.5);letter-spacing:.5px;text-transform:uppercase;}
 .hv{font-size:15px;font-weight:700;letter-spacing:-.4px;margin-top:4px;}
 .hero-tap{position:absolute;bottom:14px;right:16px;font-size:10px;color:rgba(165,180,252,.45);font-weight:500;display:flex;align-items:center;gap:4px;}
+.coin-hero{background:rgba(255,255,255,.08);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:20px;position:relative;overflow:hidden;box-shadow:0 12px 36px rgba(245,158,11,.1),inset 0 1px 0 rgba(255,255,255,.15);cursor:pointer;transition:transform .2s;margin-bottom:12px;}
+.coin-hero:hover{transform:translateY(-3px);}
+.coin-hero::before{content:'';position:absolute;top:-30px;right:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.12),transparent 70%);}
 
 /* ── STAT GRID ── */
 .sg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
@@ -84,16 +80,6 @@ body{
 .clickable-stat{cursor:pointer;transition:all .2s;}
 .clickable-stat:hover{transform:translateY(-3px);}
 
-/* ── COIN HERO DASHBOARD ── */
-.coin-hero{background:rgba(255,255,255,.08);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:20px;position:relative;overflow:hidden;box-shadow:0 12px 36px rgba(245,158,11,.1),inset 0 1px 0 rgba(255,255,255,.15);cursor:pointer;transition:transform .2s;margin-bottom:12px;}
-.coin-hero:hover{transform:translateY(-3px);}
-.coin-hero::before{content:'';position:absolute;top:-30px;right:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.12),transparent 70%);}
-
-/* ── BTN PREMIUM ── */
-.btn-premium{background:rgba(255,255,255,.07);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(180,160,255,.28);border-radius:50px;padding:14px 28px;font-size:15px;font-weight:600;color:#e0d7ff;letter-spacing:.3px;box-shadow:0 8px 24px rgba(0,0,0,.35),inset 0 0 12px rgba(139,92,246,.15);transition:all .25s;cursor:pointer;display:inline-flex;align-items:center;gap:10px;outline:none;}
-.btn-premium i{font-size:16px;color:#a78bfa;}
-.btn-premium:hover{background:rgba(255,255,255,.11);border-color:rgba(192,172,255,.5);transform:scale(1.03);color:#fff;}
-
 /* ── SECTION HEAD ── */
 .sec-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
 .sec-h h3{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);}
@@ -102,17 +88,19 @@ body{
 .log-item{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);box-shadow:0 4px 16px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.08);margin-bottom:7px;transition:background .15s;}
 .log-item:hover{background:rgba(255,255,255,.08);}
 .log-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px;}
-.log-dot.in,.log-dot.give_money{background:#34d399;box-shadow:0 0 6px #34d399;}
-.log-dot.out,.log-dot.take_money,.log-dot.take_coin{background:#f87171;box-shadow:0 0 6px #f87171;}
+.log-dot.in{background:#34d399;box-shadow:0 0 6px #34d399;}
+.log-dot.out{background:#f87171;box-shadow:0 0 6px #f87171;}
 .log-dot.give_coin{background:#fbbf24;box-shadow:0 0 6px #fbbf24;}
+.log-dot.take_coin{background:#f87171;box-shadow:0 0 6px #f87171;}
 .log-inf{flex:1;min-width:0;}
 .log-inf strong{display:block;font-size:13px;font-weight:500;color:rgba(255,255,255,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .log-inf small{font-size:11px;color:rgba(255,255,255,.32);}
 .log-rt{text-align:right;flex-shrink:0;}
 .log-amt{font-size:13px;font-weight:700;letter-spacing:-.3px;}
-.log-amt.in,.log-amt.give_money{color:#4ade80;}
-.log-amt.out,.log-amt.take_money,.log-amt.take_coin{color:#f87171;}
+.log-amt.in{color:#4ade80;}
+.log-amt.out{color:#f87171;}
 .log-amt.give_coin{color:#fbbf24;}
+.log-amt.take_coin{color:#f87171;}
 .log-actions{display:flex;gap:4px;margin-top:5px;justify-content:flex-end;}
 
 /* ── TX PAGE ── */
@@ -134,11 +122,11 @@ body{
 
 /* ── SEARCH ── */
 .search-bar{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
-.search-wrap{flex:2;position:relative;min-width:180px;}
+.search-wrap{flex:2;position:relative;min-width:160px;}
 .search-wrap i{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#38bdf8;font-size:14px;pointer-events:none;}
-.search-inp{width:100%;padding:12px 14px 12px 42px;border-radius:60px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);color:#e8eaf6;font-size:14px;font-weight:500;font-family:'Inter',sans-serif;outline:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.1);}
+.search-inp{width:100%;padding:12px 14px 12px 42px;border-radius:60px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);color:#e8eaf6;font-size:14px;font-weight:500;font-family:'Inter',sans-serif;outline:none;}
 .search-inp::placeholder{color:rgba(160,140,255,.35);}
-.sbtn{border:none;padding:0 20px;border-radius:60px;height:46px;font-weight:700;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px;}
+.sbtn{border:none;padding:0 16px;border-radius:60px;height:46px;font-weight:700;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px;}
 .sbtn-p{background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;box-shadow:0 4px 18px rgba(109,40,217,.4);}
 .sbtn-o{background:rgba(255,255,255,.05);border:1px solid rgba(150,130,255,.28);color:#b8a8ff;}
 .tx-footer{text-align:center;font-size:12px;color:rgba(160,155,200,.4);margin-top:10px;padding-top:12px;border-top:1px solid rgba(130,110,220,.1);}
@@ -148,7 +136,7 @@ body{
 .hist-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px;border-left:4px solid #8b5cf6;padding-left:14px;}
 .hist-head h3{font-size:15px;font-weight:700;color:#c9c5ff;display:flex;align-items:center;gap:7px;}
 .stat-cards-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px;}
-.scard{flex:1;min-width:140px;border-radius:18px;padding:14px;text-align:center;backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);box-shadow:0 8px 20px -10px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1);}
+.scard{flex:1;min-width:140px;border-radius:18px;padding:14px;text-align:center;}
 .scard.inc{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-bottom:3px solid #4ade80;}
 .scard.exp{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-bottom:3px solid #f87171;}
 .scard .sc-icon{font-size:26px;margin-bottom:6px;}
@@ -157,12 +145,11 @@ body{
 .scard.inc .sc-val{color:#4ade80;}
 .scard.exp .sc-val{color:#f87171;}
 .ssub{font-size:13px;font-weight:700;margin:14px 0 8px;display:flex;align-items:center;gap:7px;background:linear-gradient(90deg,#c084fc,#818cf8,#34d399);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.tx-tbl-wrap{overflow-x:auto;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.08);}
+.tx-tbl-wrap{overflow-x:auto;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);}
 .tx-tbl{width:100%;border-collapse:collapse;font-size:13px;}
 .tx-tbl th{text-align:left;padding:11px 12px;background:rgba(0,0,0,.28);color:#a78bfa;font-weight:700;letter-spacing:.4px;border-bottom:1px solid rgba(120,100,200,.15);}
 .tx-tbl td{padding:11px 12px;border-bottom:1px solid rgba(100,80,180,.07);font-weight:500;color:#ccc8e8;}
 .tx-tbl tbody tr:nth-child(even){background:rgba(100,80,180,.04);}
-.tx-tbl tbody tr:hover{background:rgba(130,110,220,.08);}
 .cr{color:#4ade80;font-weight:700;}
 .db{color:#f87171;font-weight:700;}
 .no-res{text-align:center;padding:32px;background:rgba(0,0,0,.15);border-radius:18px;color:rgba(180,175,210,.45);font-weight:500;}
@@ -183,14 +170,14 @@ body{
 
 /* ── SUM BAR ── */
 .sbar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;}
-.sbox{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:11px 12px;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.1);}
+.sbox{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:11px 12px;text-align:center;}
 .sbox .sl{font-size:9px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.28);}
 .sbox .sv{font-size:15px;font-weight:700;margin-top:5px;letter-spacing:-.4px;}
 
 /* ── FORM ── */
 .fld{margin-bottom:12px;}
 .fld label{display:block;font-size:10px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px;}
-.inp{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#f1f5f9;padding:11px 14px;border-radius:14px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:all .15s;box-shadow:inset 0 1px 0 rgba(255,255,255,.08);}
+.inp{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#f1f5f9;padding:11px 14px;border-radius:14px;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:all .15s;}
 .inp:focus{border-color:rgba(255,255,255,.38);background:rgba(255,255,255,.12);}
 .inp::placeholder{color:rgba(255,255,255,.22);}
 select.inp option{background:#1a1060;color:#e8eaf6;}
@@ -209,20 +196,20 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
 .dd-role{font-size:10px;color:rgba(255,255,255,.32);}
 
 /* ── BUTTONS ── */
-.btn{border:none;border-radius:50px;font-weight:600;font-size:14px;cursor:pointer;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:8px;justify-content:center;letter-spacing:.2px;min-height:48px;padding:12px 24px;transition:all .25s;backdrop-filter:blur(10px);box-shadow:0 8px 20px rgba(0,0,0,.35);}
+.btn{border:none;border-radius:50px;font-weight:600;font-size:14px;cursor:pointer;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:8px;justify-content:center;letter-spacing:.2px;min-height:48px;padding:12px 24px;transition:all .25s;box-shadow:0 8px 20px rgba(0,0,0,.35);}
 .btn:active{transform:scale(.96);}
 .btn-g{background:rgba(6,95,70,.3);border:1px solid rgba(52,211,153,.25);color:#bbf7d0;}
-.btn-g:hover{background:rgba(6,95,70,.5);border-color:rgba(52,211,153,.5);box-shadow:0 10px 24px rgba(16,185,129,.25);transform:translateY(-2px);}
+.btn-g:hover{background:rgba(6,95,70,.5);transform:translateY(-2px);}
 .btn-r{background:rgba(127,29,29,.35);border:1px solid rgba(248,113,113,.25);color:#fecaca;}
-.btn-r:hover{background:rgba(127,29,29,.55);border-color:rgba(248,113,113,.5);box-shadow:0 10px 24px rgba(239,68,68,.25);transform:translateY(-2px);}
-.btn-p{background:linear-gradient(135deg,#818cf8,#6366f1,#8b5cf6);border:1px solid rgba(199,210,254,.4);color:#fff;box-shadow:0 8px 22px rgba(99,102,241,.3),inset 0 1px 0 rgba(255,255,255,.25);}
+.btn-r:hover{background:rgba(127,29,29,.55);transform:translateY(-2px);}
+.btn-p{background:linear-gradient(135deg,#818cf8,#6366f1,#8b5cf6);border:1px solid rgba(199,210,254,.4);color:#fff;}
 .btn-p:hover{transform:translateY(-2px);}
-.btn-go{background:linear-gradient(135deg,#fbbf24,#f59e0b,#d97706);border:1px solid rgba(253,230,138,.5);color:#3a2305;box-shadow:0 8px 22px rgba(245,158,11,.3);}
+.btn-go{background:linear-gradient(135deg,#fbbf24,#f59e0b,#d97706);border:1px solid rgba(253,230,138,.5);color:#3a2305;}
 .btn-go:hover{transform:translateY(-2px);}
 .btn-gh{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.65);}
 .btn-gh:hover{background:rgba(255,255,255,.12);transform:translateY(-2px);}
 .btn-full{width:100%;font-size:15px;}
-.btn-quick{flex-direction:column;gap:7px;padding:16px 8px;font-size:12.5px;min-height:78px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;color:rgba(255,255,255,.82);box-shadow:0 8px 22px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.1);}
+.btn-quick{flex-direction:column;gap:7px;padding:16px 8px;font-size:12.5px;min-height:78px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;color:rgba(255,255,255,.82);}
 .btn-quick i{font-size:19px;}
 .btn-quick:hover{background:rgba(255,255,255,.12);transform:translateY(-2px);}
 .btn-quick.q-green{border-color:rgba(52,211,153,.35);}
@@ -234,42 +221,8 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
 .btn-quick.q-blue{border-color:rgba(96,165,250,.35);}
 .btn-quick.q-blue i{color:#60a5fa;}
 
-/* ── SPINNER ── */
-.spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.15);border-top-color:#fff;border-radius:50%;animation:sp .65s linear infinite;}
-@keyframes sp{to{transform:rotate(360deg);}}
-@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.fu{animation:fu .38s ease both;}
-.empty{text-align:center;padding:40px 20px;color:rgba(255,255,255,.25);font-size:13px;}
-@keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 4px currentColor)}50%{filter:drop-shadow(0 0 10px currentColor)}}
-
-/* ── MODAL ── */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .22s;}
-.overlay.open{opacity:1;pointer-events:all;}
-.modal{background:rgba(20,16,50,.95);backdrop-filter:blur(44px) saturate(180%);-webkit-backdrop-filter:blur(44px) saturate(180%);border:1px solid rgba(255,255,255,.2);border-radius:26px 26px 0 0;padding:20px 16px 28px;width:100%;max-width:520px;transform:translateY(100%);transition:transform .3s cubic-bezier(.32,1.1,.64,1);max-height:90vh;overflow-y:auto;box-shadow:0 -10px 40px rgba(0,0,0,.5);}
-.overlay.open .modal{transform:translateY(0);}
-.drag-h{width:32px;height:3px;background:rgba(255,255,255,.18);border-radius:2px;margin:0 auto 18px;}
-.modal-h{font-size:15px;font-weight:700;margin-bottom:16px;letter-spacing:-.3px;color:#e8eaf6;}
-.modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
-
-/* ── API STATUS ── */
-.api-status{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 12px;margin-bottom:12px;font-size:11px;color:rgba(255,255,255,.5);}
-.api-dot{width:7px;height:7px;border-radius:50%;background:#64748b;flex-shrink:0;}
-.api-dot.ok{background:#34d399;box-shadow:0 0 5px #34d399;}
-.api-dot.err{background:#f87171;box-shadow:0 0 5px #f87171;}
-.api-dot.checking{animation:apiPulse 1s ease-in-out infinite;background:#fbbf24;}
-@keyframes apiPulse{0%,100%{opacity:.4}50%{opacity:1;}}
-
-/* ── COIN PAGE সম্পূর্ণ নতুন ── */
-.coin-page-hero{
-  background:linear-gradient(135deg,rgba(251,191,36,.12),rgba(245,158,11,.06));
-  border:1px solid rgba(251,191,36,.28);
-  border-radius:26px;
-  padding:22px 22px 20px;
-  position:relative;overflow:hidden;
-  box-shadow:0 20px 50px rgba(245,158,11,.12),inset 0 1px 0 rgba(255,255,255,.15);
-  margin-bottom:12px;
-  transition:transform .2s;
-}
+/* ── COIN PAGE HERO ── */
+.coin-page-hero{background:linear-gradient(135deg,rgba(251,191,36,.12),rgba(245,158,11,.06));border:1px solid rgba(251,191,36,.28);border-radius:26px;padding:22px 22px 20px;position:relative;overflow:hidden;box-shadow:0 20px 50px rgba(245,158,11,.12),inset 0 1px 0 rgba(255,255,255,.15);margin-bottom:12px;}
 .coin-page-hero::before{content:'';position:absolute;top:-50px;right:-50px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.15),transparent 70%);}
 .coin-hero-lbl{font-size:10px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:rgba(253,230,138,.55);margin-bottom:8px;}
 .coin-hero-amt{font-size:38px;font-weight:800;letter-spacing:-2px;color:#fde68a;line-height:1;margin-bottom:18px;text-shadow:0 2px 14px rgba(245,158,11,.4);}
@@ -278,48 +231,69 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
 .coin-hero-item+.coin-hero-item{border-left:1px solid rgba(251,191,36,.12);padding-left:16px;margin-left:16px;}
 .chl{font-size:9px;font-weight:500;color:rgba(253,230,138,.5);letter-spacing:.5px;text-transform:uppercase;}
 .chv{font-size:15px;font-weight:700;letter-spacing:-.4px;margin-top:4px;}
-
-/* কয়েন সাম বার (২ কলাম) */
 .coin-sbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
 .coin-sbox-give{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:16px;padding:11px 12px;text-align:center;}
 .coin-sbox-take{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.18);border-radius:16px;padding:11px 12px;text-align:center;}
 .coin-sbox-give .sl,.coin-sbox-take .sl{font-size:9px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.28);}
-.coin-sbox-give .sv{font-size:15px;font-weight:700;margin-top:5px;letter-spacing:-.4px;color:#fbbf24;}
-.coin-sbox-take .sv{font-size:15px;font-weight:700;margin-top:5px;letter-spacing:-.4px;color:#f87171;}
-
-/* কয়েন অ্যাড ফর্ম */
-.coin-form-card{background:rgba(255,255,255,.07);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid rgba(251,191,36,.18);border-radius:20px;padding:16px;margin-bottom:12px;box-shadow:0 8px 28px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.1);}
+.coin-sbox-give .sv{font-size:15px;font-weight:700;margin-top:5px;color:#fbbf24;}
+.coin-sbox-take .sv{font-size:15px;font-weight:700;margin-top:5px;color:#f87171;}
+.coin-form-card{background:rgba(255,255,255,.07);border:1px solid rgba(251,191,36,.18);border-radius:20px;padding:16px;margin-bottom:12px;}
 .coin-dir-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
 .coin-dir-btn{border:none;border-radius:14px;padding:12px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .2s;}
-.coin-dir-btn.give-active{background:rgba(251,191,36,.2);border:1px solid rgba(251,191,36,.5);color:#fde68a;box-shadow:0 4px 16px rgba(245,158,11,.2);}
-.coin-dir-btn.take-active{background:rgba(239,68,68,.15);border:1px solid rgba(248,113,113,.4);color:#fecaca;box-shadow:0 4px 16px rgba(239,68,68,.15);}
+.coin-dir-btn.give-active{background:rgba(251,191,36,.2);border:1px solid rgba(251,191,36,.5);color:#fde68a;}
+.coin-dir-btn.take-active{background:rgba(239,68,68,.15);border:1px solid rgba(248,113,113,.4);color:#fecaca;}
 .coin-dir-btn.inactive{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.3);}
 
-/* ── LOADING OVERLAY ── */
-#loadingOverlay{position:fixed;inset:0;background:rgba(6,4,18,.9);backdrop-filter:blur(8px);z-index:9000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .4s;}
-#loadingOverlay.hide{opacity:0;pointer-events:none;}
-.load-icon{font-size:40px;animation:glowPulse 1.5s ease-in-out infinite;}
-.load-txt{font-size:14px;font-weight:500;color:rgba(165,180,252,.65);letter-spacing:.5px;}
-
-/* ── SHEET VERIFY BANNER ── */
+/* ── SHEET STATUS ── */
 .sheet-verify{display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:12px;margin-bottom:10px;font-size:11px;font-weight:600;border:1px solid;}
 .sheet-verify.ok{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.25);color:#34d399;}
 .sheet-verify.err{background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.25);color:#f87171;}
 .sheet-verify.checking{background:rgba(251,191,36,.06);border-color:rgba(251,191,36,.2);color:#fbbf24;}
+
+/* ── API STATUS ── */
+.api-status{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 12px;margin-bottom:12px;font-size:11px;color:rgba(255,255,255,.5);}
+.api-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.api-dot.ok{background:#34d399;box-shadow:0 0 5px #34d399;}
+.api-dot.err{background:#f87171;}
+.api-dot.checking{animation:apiPulse 1s ease-in-out infinite;background:#fbbf24;}
+@keyframes apiPulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ── SPINNER ── */
+.spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.15);border-top-color:#fff;border-radius:50%;animation:sp .65s linear infinite;}
+@keyframes sp{to{transform:rotate(360deg);}}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fu{animation:fu .38s ease both;}
+.empty{text-align:center;padding:40px 20px;color:rgba(255,255,255,.25);font-size:13px;}
+@keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 4px currentColor)}50%{filter:drop-shadow(0 0 10px currentColor)}}
+
+/* ── MODAL (logout confirm) ── */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .22s;}
+.overlay.open{opacity:1;pointer-events:all;}
+.modal{background:rgba(20,16,50,.95);backdrop-filter:blur(44px) saturate(180%);-webkit-backdrop-filter:blur(44px) saturate(180%);border:1px solid rgba(255,255,255,.2);border-radius:26px 26px 0 0;padding:20px 16px 28px;width:100%;max-width:520px;transform:translateY(100%);transition:transform .3s cubic-bezier(.32,1.1,.64,1);max-height:90vh;overflow-y:auto;box-shadow:0 -10px 40px rgba(0,0,0,.5);}
+.overlay.open .modal{transform:translateY(0);}
+.drag-h{width:32px;height:3px;background:rgba(255,255,255,.18);border-radius:2px;margin:0 auto 18px;}
+.modal-h{font-size:15px;font-weight:700;margin-bottom:8px;letter-spacing:-.3px;color:#e8eaf6;}
+.modal-sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:18px;line-height:1.5;}
+.modal-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;}
+
+/* ── LOADING ── */
+#loadingOverlay{position:fixed;inset:0;background:rgba(6,4,18,.9);backdrop-filter:blur(8px);z-index:9000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .4s;}
+#loadingOverlay.hide{opacity:0;pointer-events:none;}
+.load-icon{font-size:40px;animation:glowPulse 1.5s ease-in-out infinite;}
+.load-txt{font-size:14px;font-weight:500;color:rgba(165,180,252,.65);letter-spacing:.5px;}
 </style>
 </head>
 <body>
 
-<!-- ══ LOADING ══ -->
 <div id="loadingOverlay">
   <div class="load-icon">💎</div>
   <div class="spin" style="width:24px;height:24px;border-width:3px;"></div>
-  <div class="load-txt">ডেটা লোড হচ্ছে...</div>
+  <div class="load-txt" id="loadTxt">ডেটা লোড হচ্ছে...</div>
 </div>
 
 <div class="app-shell">
 
-<!-- ══ TOPBAR + NAV ══ -->
+<!-- ══ TOPBAR ══ -->
 <div id="topbar">
   <div class="tb-top">
     <div class="tb-row1">
@@ -329,10 +303,14 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
           <div class="u-av" id="tb-av">A</div>
           <div class="u-name" id="tb-name">Admin</div>
         </div>
-        <div class="lb" onclick="doLogout()" title="লগআউট"><i class="fa-solid fa-right-from-bracket"></i></div>
+        <div class="u-role-badge admin" id="tb-role-badge">admin</div>
+        <div class="lb" onclick="confirmLogout()">
+          <i class="fa-solid fa-right-from-bracket"></i> লগআউট
+        </div>
       </div>
     </div>
   </div>
+  <!-- NAV -->
   <nav class="nav-bar" id="navBar">
     <button class="nav-btn active" data-view="dashboard" onclick="navTo('dashboard',this)">
       <i class="fa-solid fa-chart-pie"></i>ড্যাশবোর্ড
@@ -354,11 +332,15 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
 
 <div class="pw">
 
-<!-- ═══════════════ DASHBOARD ═══════════════ -->
+<!-- ═══ DASHBOARD ═══ -->
 <div class="view active" id="view-dashboard">
   <div class="fu" style="padding:2px 0 8px;">
     <div class="page-title">ড্যাশবোর্ড</div>
     <div class="page-sub" id="greet-txt">স্বাগতম!</div>
+  </div>
+  <div id="user-readonly-banner" class="readonly-banner" style="display:none;">
+    <i class="fa-solid fa-eye"></i>
+    আপনি শুধুমাত্র তথ্য দেখতে পারবেন। পরিবর্তন করতে Admin-এর অনুমতি প্রয়োজন।
   </div>
   <div id="apiStatusBar" class="api-status">
     <div class="api-dot checking" id="apiDot"></div>
@@ -401,16 +383,16 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
   </div>
 </div>
 
-<!-- ═══════════════ FINANCIAL ═══════════════ -->
+<!-- ═══ FINANCIAL ═══ -->
 <div class="view" id="view-financial">
   <div class="page-title">আয় / ব্যয়</div>
-  <div class="page-sub" style="margin-bottom:16px;">আয় ও ব্যয় পরিচালনা</div>
-
-  <!-- Sheet সংযোগ যাচাই -->
-  <div class="sheet-verify checking" id="f-sheetStatus">
-    <i class="fa-solid fa-circle-notch fa-spin"></i> শীট সংযোগ যাচাই হচ্ছে...
+  <div class="page-sub" style="margin-bottom:12px;">আয় ও ব্যয় পরিচালনা</div>
+  <div id="f-readonly-banner" class="readonly-banner" style="display:none;">
+    <i class="fa-solid fa-eye"></i> শুধুমাত্র দেখার অনুমতি আছে।
   </div>
-
+  <div class="sheet-verify checking" id="f-sheetStatus">
+    <i class="fa-solid fa-circle-notch fa-spin"></i> শীট থেকে ডেটা লোড হচ্ছে...
+  </div>
   <div class="sbar">
     <div class="sbox"><div class="sl">আয়</div><div class="sv" id="f-sumIn" style="color:#4ade80">৳ 0</div></div>
     <div class="sbox"><div class="sl">ব্যয়</div><div class="sv" id="f-sumOut" style="color:#f87171">৳ 0</div></div>
@@ -423,6 +405,7 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
     <button class="ftab" onclick="setFPeriod('month',this)">মাস</button>
     <button class="ftab" onclick="setFPeriod('year',this)">বছর</button>
   </div>
+  <!-- Admin only: add form -->
   <div class="card" id="f-addForm" style="display:none;margin-bottom:12px;padding:15px;">
     <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:14px;">নতুন লেনদেন যোগ করুন</div>
     <div class="fld">
@@ -452,18 +435,17 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
   </div>
 </div>
 
-<!-- ═══════════════ COIN — নতুন কাঠামো (আয়/ব্যয়ের মতো) ═══════════════ -->
+<!-- ═══ COIN ═══ -->
 <div class="view" id="view-coin">
   <div class="page-title">কয়েন</div>
-  <div class="page-sub" style="margin-bottom:14px;">কয়েন বণ্টন ও হিসাব</div>
-
-  <!-- Sheet সংযোগ যাচাই -->
-  <div class="sheet-verify checking" id="c-sheetStatus">
-    <i class="fa-solid fa-circle-notch fa-spin"></i> শীট সংযোগ যাচাই হচ্ছে...
+  <div class="page-sub" style="margin-bottom:12px;">কয়েন বণ্টন ও হিসাব</div>
+  <div id="c-readonly-banner" class="readonly-banner" style="display:none;">
+    <i class="fa-solid fa-eye"></i> শুধুমাত্র দেখার অনুমতি আছে।
   </div>
-
-  <!-- হিরো ব্যালেন্স কার্ড -->
-  <div class="coin-page-hero fu">
+  <div class="sheet-verify checking" id="c-sheetStatus">
+    <i class="fa-solid fa-circle-notch fa-spin"></i> শীট থেকে কয়েন ডেটা লোড হচ্ছে...
+  </div>
+  <div class="coin-page-hero">
     <div class="coin-hero-lbl">মোট কয়েন স্টক</div>
     <div class="coin-hero-amt" id="c-heroStock">0 🪙</div>
     <div class="coin-hero-row">
@@ -472,14 +454,10 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
       <div class="coin-hero-item"><div class="chl">ক্রেতা</div><div class="chv" style="color:#c7d2fe" id="c-heroBuyers">0 জন</div></div>
     </div>
   </div>
-
-  <!-- দেওয়া / নেওয়া সামারি বার -->
   <div class="coin-sbar">
     <div class="coin-sbox-give"><div class="sl">🪙 দেওয়া</div><div class="sv" id="c-sumGive">0</div></div>
     <div class="coin-sbox-take"><div class="sl">🪙 নেওয়া</div><div class="sv" id="c-sumTake">0</div></div>
   </div>
-
-  <!-- ফিল্টার ট্যাব -->
   <div class="ftabs" id="c-ftabs">
     <button class="ftab on" onclick="setCoinPeriod('all',this)">সব</button>
     <button class="ftab" onclick="setCoinPeriod('today',this)">আজ</button>
@@ -487,18 +465,12 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
     <button class="ftab" onclick="setCoinPeriod('month',this)">মাস</button>
     <button class="ftab" onclick="setCoinPeriod('year',this)">বছর</button>
   </div>
-
-  <!-- Admin: যোগ করার ফর্ম -->
+  <!-- Admin: বণ্টন ফর্ম -->
   <div class="coin-form-card" id="c-addForm" style="display:none;">
     <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:14px;">কয়েন লেনদেন যোগ করুন</div>
-    <!-- দিকনির্দেশনা: দেওয়া / নেওয়া -->
     <div class="coin-dir-btns">
-      <button class="coin-dir-btn give-active" id="c-giveBtn" onclick="setDistDir('give')">
-        <i class="fa-solid fa-arrow-up-from-bracket" style="color:#fbbf24"></i> 🪙 দিন
-      </button>
-      <button class="coin-dir-btn inactive" id="c-takeBtn" onclick="setDistDir('take')">
-        <i class="fa-solid fa-arrow-down-to-bracket" style="color:#f87171"></i> 🪙 নিন
-      </button>
+      <button class="coin-dir-btn give-active" id="c-giveBtn" onclick="setDistDir('give')"><i class="fa-solid fa-arrow-up-from-bracket" style="color:#fbbf24"></i> 🪙 দিন</button>
+      <button class="coin-dir-btn inactive" id="c-takeBtn" onclick="setDistDir('take')"><i class="fa-solid fa-arrow-down-to-bracket" style="color:#f87171"></i> 🪙 নিন</button>
     </div>
     <div class="fld">
       <label>ইউজার নির্বাচন</label>
@@ -509,42 +481,30 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
       </div>
     </div>
     <div class="fld"><label>পরিমাণ (কয়েন)</label><input class="inp" type="number" id="c-amt" placeholder="0" inputmode="decimal"></div>
-    <div class="fld"><label>নোট (ঐচ্ছিক)</label><input class="inp" type="text" id="c-note" placeholder="কারণ লিখুন..."></div>
-    <button class="btn btn-go btn-full" id="c-distBtn" onclick="distribute()">
-      <i class="fa-solid fa-paper-plane"></i> বণ্টন নিশ্চিত করুন
-    </button>
+    <div class="fld"><label>নোট (ঐচ্ছিক)</label><input class="inp" type="text" id="c-note" placeholder="কারণ..."></div>
+    <button class="btn btn-go btn-full" id="c-distBtn" onclick="distribute()"><i class="fa-solid fa-paper-plane"></i> বণ্টন নিশ্চিত করুন</button>
   </div>
-
-  <!-- Admin: স্টক আপডেট -->
+  <!-- Admin: স্টক -->
   <div class="coin-form-card" id="c-adminForm" style="display:none;">
     <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:14px;">কয়েন স্টক আপডেট</div>
     <div class="fld"><label>পরিমাণ (+ যোগ / - বিয়োগ)</label><input class="inp" type="number" id="c-stockAmt" placeholder="500 বা -100" inputmode="numeric"></div>
     <div class="fld"><label>কারণ</label><input class="inp" type="text" id="c-stockReason" placeholder="কারণ লিখুন..."></div>
     <button class="btn btn-go btn-full" onclick="updateStock()"><i class="fa-solid fa-coins"></i> স্টক আপডেট</button>
   </div>
-
-  <!-- দুই কলাম লেজার — একদম আয়/ব্যয়ের মতো -->
+  <!-- দুই কলাম -->
   <div class="two-col">
     <div>
-      <div class="col-h">
-        <div class="cdot" style="background:#fbbf24;box-shadow:0 0 5px #fbbf24"></div>
-        <div class="col-lbl">দেওয়া</div>
-        <span class="col-cnt" id="c-giveCnt">0</span>
-      </div>
+      <div class="col-h"><div class="cdot" style="background:#fbbf24;box-shadow:0 0 5px #fbbf24"></div><div class="col-lbl">দেওয়া</div><span class="col-cnt" id="c-giveCnt">0</span></div>
       <div id="c-giveList"><div class="empty" style="padding:20px 8px">কোনো রেকর্ড নেই</div></div>
     </div>
     <div>
-      <div class="col-h">
-        <div class="cdot" style="background:#f87171;box-shadow:0 0 5px #f87171"></div>
-        <div class="col-lbl">নেওয়া</div>
-        <span class="col-cnt" id="c-takeCnt">0</span>
-      </div>
+      <div class="col-h"><div class="cdot" style="background:#f87171;box-shadow:0 0 5px #f87171"></div><div class="col-lbl">নেওয়া</div><span class="col-cnt" id="c-takeCnt">0</span></div>
       <div id="c-takeList"><div class="empty" style="padding:20px 8px">কোনো রেকর্ড নেই</div></div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ TRANSACTIONS ═══════════════ -->
+<!-- ═══ TRANSACTIONS ═══ -->
 <div class="view" id="view-transactions">
   <div id="tx-userList">
     <div style="margin-bottom:16px;">
@@ -579,7 +539,7 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
   </div>
 </div>
 
-<!-- ═══════════════ USERS ═══════════════ -->
+<!-- ═══ USERS (admin only) ═══ -->
 <div class="view" id="view-users">
   <div class="page-title">ইউজার ব্যবস্থাপনা</div>
   <div class="page-sub" style="margin-bottom:16px;">অ্যাকাউন্ট তৈরি ও পরিচালনা</div>
@@ -595,8 +555,10 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
     <button class="btn btn-p" id="u-createBtn" onclick="createUser()"><i class="fa-solid fa-user-plus"></i> ইউজার তৈরি করুন</button>
   </div>
   <div class="card" style="padding:15px;">
-    <div class="sec-h"><h3><i class="fa-solid fa-users" style="color:#a5b4fc;font-size:11px"></i> সকল ইউজার</h3>
-    <button class="btn btn-gh" style="min-height:32px;padding:6px 12px;font-size:11px;" onclick="loadUsers()"><i class="fa-solid fa-arrows-rotate"></i></button></div>
+    <div class="sec-h">
+      <h3><i class="fa-solid fa-users" style="color:#a5b4fc;font-size:11px"></i> সকল ইউজার</h3>
+      <button class="btn btn-gh" style="min-height:32px;padding:6px 12px;font-size:11px;" onclick="loadUsers()"><i class="fa-solid fa-arrows-rotate"></i></button>
+    </div>
     <div id="u-list"><div class="empty">কোনো ইউজার নেই</div></div>
   </div>
 </div>
@@ -626,6 +588,25 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
   </div>
 </div>
 
+<!-- Logout Confirm Modal -->
+<div class="overlay" id="logoutModal">
+  <div class="modal">
+    <div class="drag-h"></div>
+    <div class="modal-h">🚪 লগআউট নিশ্চিত করুন</div>
+    <div class="modal-sub">আপনি কি সত্যিই লগআউট করতে চান? সেশন শেষ হয়ে যাবে।</div>
+    <div style="background:rgba(239,68,68,.08);border:1px solid rgba(248,113,113,.2);border-radius:14px;padding:12px 14px;margin-bottom:4px;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(252,165,165,.8);">
+        <i class="fa-solid fa-triangle-exclamation" style="color:#f87171;"></i>
+        লগআউটের পরে আবার লগইন করতে হবে।
+      </div>
+    </div>
+    <div class="modal-btns">
+      <button class="btn btn-gh" onclick="closeModal('logoutModal')"><i class="fa-solid fa-xmark"></i> বাতিল</button>
+      <button class="btn btn-r" onclick="doLogout()"><i class="fa-solid fa-right-from-bracket"></i> হ্যাঁ, লগআউট</button>
+    </div>
+  </div>
+</div>
+
 </div><!-- /app-shell -->
 
 <script>
@@ -639,63 +620,43 @@ var CONFIG = {
 // ══════════════════════════════════════════════════
 //  STATE
 // ══════════════════════════════════════════════════
-var session      = null;
-var allTx        = [];
-var allUsers     = [];
-var coinLedger   = [];
-var allTxUsers   = [];
-var fPeriod      = "all";
-var coinPeriod   = "all";   // কয়েন পেজ ফিল্টার
-var distDir      = "give";
+var session    = null;
+var allTx      = [];
+var allUsers   = [];
+var coinLedger = [];
+var allTxUsers = [];
+var fPeriod    = "all";
+var coinPeriod = "all";
+var distDir    = "give";
+var IS_ADMIN   = false;
 
 // ══════════════════════════════════════════════════
-//  API — JSONP fallback for CORS
+//  API
 // ══════════════════════════════════════════════════
 async function api(action, params) {
   params = params || {};
   params.action = action;
-
   try {
-    var resp = await fetch(CONFIG.API_URL, {
-      method:  "POST",
-      headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify(params),
-      signal:  AbortSignal.timeout(12000)
+    var r = await fetch(CONFIG.API_URL, {
+      method: "POST", headers: {"Content-Type":"application/json"},
+      body: JSON.stringify(params), signal: AbortSignal.timeout(12000)
     });
-    if (resp.ok) return await resp.json();
-  } catch (e) {}
-
+    if (r.ok) return await r.json();
+  } catch(e) {}
   try {
-    var qs = Object.keys(params).map(function(k){
-      return encodeURIComponent(k)+"="+encodeURIComponent(params[k]);
-    }).join("&");
-    var resp2 = await fetch(CONFIG.API_URL + "?" + qs, {
-      method: "GET",
-      signal: AbortSignal.timeout(12000)
-    });
-    if (resp2.ok) return await resp2.json();
-  } catch (e2) {}
-
+    var qs = Object.keys(params).map(function(k){return encodeURIComponent(k)+"="+encodeURIComponent(params[k]);}).join("&");
+    var r2 = await fetch(CONFIG.API_URL+"?"+qs, {signal: AbortSignal.timeout(12000)});
+    if (r2.ok) return await r2.json();
+  } catch(e2) {}
   return new Promise(function(resolve) {
-    var cbName = "__plcb_" + Date.now();
-    var qs2 = Object.keys(params).map(function(k){
-      return encodeURIComponent(k)+"="+encodeURIComponent(params[k]);
-    }).join("&");
-    var url = CONFIG.API_URL + "?" + qs2 + "&callback=" + cbName;
-    var script = document.createElement("script");
-    var timer = setTimeout(function(){
-      script.remove(); delete window[cbName];
-      resolve({ success:false, message:"সংযোগ সময়সীমা অতিক্রম।" });
-    }, 14000);
-    window[cbName] = function(data) {
-      clearTimeout(timer); script.remove(); delete window[cbName]; resolve(data);
-    };
-    script.src = url;
-    script.onerror = function() {
-      clearTimeout(timer); script.remove(); delete window[cbName];
-      resolve({ success:false, message:"সংযোগ ব্যর্থ।" });
-    };
-    document.head.appendChild(script);
+    var cb = "__plcb_"+Date.now();
+    var qs2 = Object.keys(params).map(function(k){return encodeURIComponent(k)+"="+encodeURIComponent(params[k]);}).join("&");
+    var sc = document.createElement("script");
+    var t = setTimeout(function(){sc.remove();delete window[cb];resolve({success:false,message:"সংযোগ সময়সীমা অতিক্রম।"});},14000);
+    window[cb] = function(d){clearTimeout(t);sc.remove();delete window[cb];resolve(d);};
+    sc.src = CONFIG.API_URL+"?"+qs2+"&callback="+cb;
+    sc.onerror = function(){clearTimeout(t);sc.remove();delete window[cb];resolve({success:false,message:"সংযোগ ব্যর্থ।"});};
+    document.head.appendChild(sc);
   });
 }
 
@@ -704,10 +665,23 @@ async function api(action, params) {
 // ══════════════════════════════════════════════════
 (function(){
   var d=document,s=d.createElement("div");s.id="eliteSplash";
-  s.innerHTML='<div class="sp-bg"></div><div class="sp-center"><div class="sp-logo-ring"><div class="sp-diamond">💎</div></div><div class="sp-name-wrap"><div class="sp-name"><span class="sp-letter" style="--i:0">P</span><span class="sp-letter" style="--i:1">r</span><span class="sp-letter" style="--i:2">e</span><span class="sp-letter" style="--i:3">m</span><span class="sp-letter" style="--i:4">i</span><span class="sp-letter" style="--i:5">u</span><span class="sp-letter" style="--i:6">m</span><span class="sp-gap"> </span><span class="sp-letter sp-gold" style="--i:7">L</span><span class="sp-letter sp-gold" style="--i:8">e</span><span class="sp-letter sp-gold" style="--i:9">d</span><span class="sp-letter sp-gold" style="--i:10">g</span><span class="sp-letter sp-gold" style="--i:11">e</span><span class="sp-letter sp-gold" style="--i:12">r</span></div><div class="sp-tagline">আর্থিক ব্যবস্থাপনা সিস্টেম</div></div><div class="sp-bar-wrap"><div class="sp-bar"></div></div></div>';
-  var st=d.createElement("style");st.textContent='#eliteSplash{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:opacity .7s ease}#eliteSplash.sp-hide{opacity:0;pointer-events:none}.sp-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,#1a0a4a 0%,#0a0618 40%,#060412 100%)}.sp-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:20px}.sp-logo-ring{position:relative;width:96px;height:96px;display:flex;align-items:center;justify-content:center}.sp-diamond{font-size:46px;line-height:1;animation:spDiamondIn .8s cubic-bezier(.34,1.56,.64,1) .3s both;filter:drop-shadow(0 0 18px rgba(192,132,252,.8))}@keyframes spDiamondIn{from{transform:scale(0) rotate(-30deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}.sp-name-wrap{text-align:center}.sp-name{font-family:"Inter",sans-serif;font-size:clamp(24px,7vw,40px);font-weight:900;letter-spacing:-.02em;line-height:1.1}.sp-letter{display:inline-block;color:#fff;opacity:0;animation:spLetterIn .4s cubic-bezier(.34,1.4,.64,1) calc(.6s + var(--i)*.06s) both}.sp-letter.sp-gold{color:#fbbf24}.sp-gap{display:inline-block;width:.3em}@keyframes spLetterIn{from{opacity:0;transform:translateY(18px) scale(.8)}to{opacity:1;transform:translateY(0) scale(1)}}.sp-tagline{font-family:"Inter",sans-serif;font-size:12px;font-weight:500;color:rgba(165,180,252,.5);letter-spacing:2px;text-transform:uppercase;margin-top:8px;opacity:0;animation:spFadeUp .5s ease 1.9s both}@keyframes spFadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.sp-bar-wrap{width:160px;height:2px;border-radius:2px;background:rgba(255,255,255,.1);overflow:hidden}.sp-bar{height:100%;border-radius:2px;width:0%;background:linear-gradient(90deg,#6366f1,#c084fc,#fbbf24);animation:spBarFill 2.4s ease .5s both}@keyframes spBarFill{from{width:0%}to{width:100%}}';
+  s.innerHTML='<div class="sp-bg"></div><div class="sp-center"><div class="sp-diamond">💎</div><div class="sp-name"><span class="sp-letter" style="--i:0">P</span><span class="sp-letter" style="--i:1">r</span><span class="sp-letter" style="--i:2">e</span><span class="sp-letter" style="--i:3">m</span><span class="sp-letter" style="--i:4">i</span><span class="sp-letter" style="--i:5">u</span><span class="sp-letter" style="--i:6">m</span><span> </span><span class="sp-letter sp-gold" style="--i:7">L</span><span class="sp-letter sp-gold" style="--i:8">e</span><span class="sp-letter sp-gold" style="--i:9">d</span><span class="sp-letter sp-gold" style="--i:10">g</span><span class="sp-letter sp-gold" style="--i:11">e</span><span class="sp-letter sp-gold" style="--i:12">r</span></div><div class="sp-bar-wrap"><div class="sp-bar"></div></div></div>';
+  var st=d.createElement("style");
+  st.textContent='#eliteSplash{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity .7s}#eliteSplash.sp-hide{opacity:0;pointer-events:none}.sp-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,#1a0a4a 0%,#0a0618 40%,#060412 100%)}.sp-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:16px}.sp-diamond{font-size:48px;animation:spDIn .8s cubic-bezier(.34,1.56,.64,1) .3s both;filter:drop-shadow(0 0 18px rgba(192,132,252,.8))}@keyframes spDIn{from{transform:scale(0) rotate(-30deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}.sp-name{font-family:"Inter",sans-serif;font-size:clamp(22px,7vw,36px);font-weight:900;letter-spacing:-.02em}.sp-letter{display:inline-block;color:#fff;opacity:0;animation:spLIn .4s cubic-bezier(.34,1.4,.64,1) calc(.6s + var(--i)*.06s) both}.sp-letter.sp-gold{color:#fbbf24}@keyframes spLIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}.sp-bar-wrap{width:160px;height:2px;border-radius:2px;background:rgba(255,255,255,.1);overflow:hidden}.sp-bar{height:100%;border-radius:2px;width:0%;background:linear-gradient(90deg,#6366f1,#c084fc,#fbbf24);animation:spBar 2.4s ease .5s both}@keyframes spBar{from{width:0%}to{width:100%}}';
   d.head.appendChild(st);d.body.insertBefore(s,d.body.firstChild);
   setTimeout(function(){s.classList.add("sp-hide");setTimeout(function(){s.remove()},750)},3000);
+})();
+
+// ══════════════════════════════════════════════════
+//  AUTH GUARD — লগইন না থাকলে login.html এ পাঠাও
+// ══════════════════════════════════════════════════
+(function(){
+  try { session = JSON.parse(sessionStorage.getItem("_pls")); } catch(e){}
+  if (!session || !session.token) {
+    window.location.href = "login.html";
+    return;
+  }
+  IS_ADMIN = (session.role === "admin");
 })();
 
 // ══════════════════════════════════════════════════
@@ -723,45 +697,48 @@ function navTo(viewName, btnEl) {
   if (viewName==="financial")    loadFinancial();
   if (viewName==="coin")         loadCoin();
   if (viewName==="transactions") renderTxUsers(allTxUsers);
-  if (viewName==="users" && session && session.role==="admin") loadUsers();
-}
-
-// ══════════════════════════════════════════════════
-//  SHEET CONNECTION VERIFY — সাধারণ ইউটিলিটি
-// ══════════════════════════════════════════════════
-function setSheetStatus(elId, ok, msg) {
-  var el = document.getElementById(elId);
-  if (!el) return;
-  el.className = "sheet-verify " + (ok ? "ok" : "err");
-  el.innerHTML = (ok
-    ? '<i class="fa-solid fa-circle-check"></i> '
-    : '<i class="fa-solid fa-triangle-exclamation"></i> ') + esc(msg);
+  if (viewName==="users" && IS_ADMIN) loadUsers();
 }
 
 // ══════════════════════════════════════════════════
 //  INIT
 // ══════════════════════════════════════════════════
 document.addEventListener("DOMContentLoaded", async function() {
-  try { session = JSON.parse(sessionStorage.getItem("_pls")); } catch(e){}
-  if (!session || !session.token) {
-    session = { username:"Admin", role:"admin", token:"demo" };
-  }
+  if (!session) return;
 
+  // Topbar
   set("tb-av", session.username[0].toUpperCase());
   set("tb-name", esc(session.username));
-  set("greet-txt", "স্বাগতম, "+session.username+"!");
 
-  if (session.role === "admin") {
+  // Role badge
+  var badge = document.getElementById("tb-role-badge");
+  if (badge) {
+    badge.textContent = IS_ADMIN ? "admin" : "user";
+    badge.className = "u-role-badge " + (IS_ADMIN ? "admin" : "user");
+  }
+
+  set("greet-txt", "স্বাগতম, " + session.username + "!");
+
+  // Admin-only UI
+  if (IS_ADMIN) {
     document.getElementById("d-adminActions").style.display = "";
     document.getElementById("f-addForm").style.display      = "";
     document.getElementById("c-addForm").style.display      = "";
     document.getElementById("c-adminForm").style.display    = "";
     document.querySelectorAll(".nav-admin-only").forEach(function(el){el.style.display="";});
+  } else {
+    // User: শুধু দেখার ব্যানার
+    var ids = ["user-readonly-banner","f-readonly-banner","c-readonly-banner"];
+    ids.forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display="flex"; });
   }
 
-  setupDropdown("f-user","f-dd-list","f-dd-icon");
-  setupDropdown("c-user","c-dd-list","c-dd-icon");
+  // Dropdowns (admin শুধু ব্যবহার করে)
+  if (IS_ADMIN) {
+    setupDropdown("f-user","f-dd-list","f-dd-icon");
+    setupDropdown("c-user","c-dd-list","c-dd-icon");
+  }
 
+  // search Enter
   var inp = document.getElementById("tx-searchInp");
   if(inp) inp.addEventListener("keyup", function(e){ if(e.key==="Enter") txSearch(); });
 
@@ -773,64 +750,55 @@ document.addEventListener("DOMContentLoaded", async function() {
 });
 
 async function checkApiStatus() {
-  var dot = document.getElementById("apiDot");
-  var txt = document.getElementById("apiTxt");
-  var bar = document.getElementById("apiStatusBar");
+  var dot=document.getElementById("apiDot"), txt=document.getElementById("apiTxt"), bar=document.getElementById("apiStatusBar");
   try {
-    var res = await api("ping");
-    if(res && res.success) {
-      dot.className = "api-dot ok";
-      txt.textContent = "সার্ভার সংযুক্ত ✓ — " + (res.time||"");
-      setTimeout(function(){ if(bar) bar.style.opacity=".45"; }, 3000);
+    var res=await api("ping");
+    if(res&&res.success){
+      dot.className="api-dot ok";
+      txt.textContent="সার্ভার সংযুক্ত ✓ — "+(res.time||"");
+      setTimeout(function(){ if(bar) bar.style.opacity=".45"; },3000);
     } else {
-      dot.className = "api-dot err";
-      txt.textContent = "সার্ভার সাড়া দিচ্ছে না — " + (res.message||"");
+      dot.className="api-dot err";
+      txt.textContent="সার্ভার সাড়া দিচ্ছে না — "+(res.message||"");
     }
   } catch(e) {
-    dot.className = "api-dot err";
-    txt.textContent = "সংযোগ ব্যর্থ।";
+    dot.className="api-dot err"; txt.textContent="সংযোগ ব্যর্থ।";
   }
 }
 
+// ══════════════════════════════════════════════════
+//  LOGOUT — confirm modal
+// ══════════════════════════════════════════════════
+function confirmLogout() {
+  document.getElementById("logoutModal").classList.add("open");
+}
 function doLogout() {
   sessionStorage.removeItem("_pls");
   toast("লগআউট সম্পন্ন।","success");
-  setTimeout(function(){ window.location.href="login.html"; },800);
+  setTimeout(function(){ window.location.href="login.html"; },700);
 }
 
 // ══════════════════════════════════════════════════
 //  DROPDOWN
 // ══════════════════════════════════════════════════
 function setupDropdown(inpId, dropId, iconId) {
-  var inp  = document.getElementById(inpId);
-  var drop = document.getElementById(dropId);
-  var icon = document.getElementById(iconId);
+  var inp=document.getElementById(inpId), drop=document.getElementById(dropId), icon=document.getElementById(iconId);
   if(!inp||!drop) return;
-  function toggle(){
-    if(drop.classList.contains("open")){drop.classList.remove("open");}
-    else{populateDropdown(drop,inp);drop.classList.add("open");}
-  }
+  function toggle(){ if(drop.classList.contains("open")){drop.classList.remove("open");}else{populateDropdown(drop,inp);drop.classList.add("open");} }
   inp.addEventListener("click",toggle);
-  icon.addEventListener("click",function(e){e.stopPropagation();toggle();});
-  document.addEventListener("click",function(e){
-    if(!inp.contains(e.target)&&!drop.contains(e.target)&&e.target!==icon)
-      drop.classList.remove("open");
-  });
+  if(icon) icon.addEventListener("click",function(e){e.stopPropagation();toggle();});
+  document.addEventListener("click",function(e){ if(!inp.contains(e.target)&&!drop.contains(e.target)) drop.classList.remove("open"); });
 }
 function populateDropdown(drop, target) {
-  var users = allUsers.length ? allUsers : [];
-  if(!users.length){drop.innerHTML='<div class="dropdown-item"><span style="color:rgba(255,255,255,.3);">কোনো ইউজার নেই</span></div>';return;}
-  drop.innerHTML=users.map(function(u){
+  if(!allUsers.length){drop.innerHTML='<div class="dropdown-item"><span style="color:rgba(255,255,255,.3);">কোনো ইউজার নেই</span></div>';return;}
+  drop.innerHTML=allUsers.map(function(u){
     return '<div class="dropdown-item" data-username="'+esc(u.username)+'">'+
       '<div class="dd-av">'+u.username[0].toUpperCase()+'</div>'+
       '<div><div class="dd-name">'+esc(u.username)+'</div>'+
       '<div class="dd-role">'+(u.role==="admin"?"👑 admin":"👤 user")+'</div></div></div>';
   }).join("");
   drop.querySelectorAll(".dropdown-item").forEach(function(item){
-    item.addEventListener("click",function(){
-      target.value=this.getAttribute("data-username");
-      drop.classList.remove("open");
-    });
+    item.addEventListener("click",function(){ target.value=this.getAttribute("data-username"); drop.classList.remove("open"); });
   });
 }
 
@@ -867,17 +835,10 @@ function updateCoinHeroStats(stock){
   coinLedger.forEach(function(c){
     var a=parseFloat(c.amount);
     if(c.direction==="give_coin"){given+=a;buyers.add(c.targetUser);}
-    if(c.direction==="take_coin")taken+=a;
+    if(c.direction==="take_coin") taken+=a;
   });
-  // ড্যাশবোর্ড
-  set("d-coinBal",fmt(stock)+" 🪙");
-  set("d-coinGiven",fmt(given)+" 🪙");
-  set("d-coinBuyers",buyers.size+" জন");
-  // কয়েন পেজ হিরো
-  set("c-heroStock",fmt(stock)+" 🪙");
-  set("c-heroGiven",fmt(given)+" 🪙");
-  set("c-heroTaken",fmt(taken)+" 🪙");
-  set("c-heroBuyers",buyers.size+" জন");
+  set("d-coinBal",fmt(stock)+" 🪙");set("d-coinGiven",fmt(given)+" 🪙");set("d-coinBuyers",buyers.size+" জন");
+  set("c-heroStock",fmt(stock)+" 🪙");set("c-heroGiven",fmt(given)+" 🪙");set("c-heroTaken",fmt(taken)+" 🪙");set("c-heroBuyers",buyers.size+" জন");
 }
 
 function buildTxUsers(){
@@ -907,7 +868,6 @@ function calcUserStats(u){
   });
   return{ti:ti,te:te,mb:ti-te,cb:ce-cs};
 }
-
 function renderTxUsers(list){
   var q=document.getElementById("tx-searchInp").value.toLowerCase();
   var filtered=q?list.filter(function(u){return u.username.toLowerCase().includes(q)}):list;
@@ -930,11 +890,9 @@ function renderTxUsers(list){
       '<i class="fa-solid fa-chevron-right" style="color:#a78bfa;font-size:13px"></i></div></div>';
   }).join("");
 }
-
-function showUserHistory(idx,cardEl){
+function showUserHistory(idx){
   var u=allTxUsers[idx];if(!u)return;
   var s=calcUserStats(u);
-  if(cardEl)cardEl.classList.add("active");
   set("tx-histUser",'<i class="fa-solid fa-user" style="color:#a78bfa"></i> '+esc(u.username));
   set("tx-totalInc","৳ "+fmt(s.ti));set("tx-totalExp","৳ "+fmt(s.te));
   var ne=document.getElementById("tx-netBalance");if(ne){ne.textContent="৳ "+fmt(s.mb);ne.style.color=s.mb>=0?"#fbbf24":"#f87171";}
@@ -959,16 +917,17 @@ function txReset(){document.getElementById("tx-searchInp").value="";renderTxUser
 // ══════════════════════════════════════════════════
 //  FINANCIAL
 // ══════════════════════════════════════════════════
-async function loadFinancial(){
-  // শীট স্ট্যাটাস রিসেট
-  var el = document.getElementById("f-sheetStatus");
-  if(el){el.className="sheet-verify checking";el.innerHTML='<i class="fa-solid fa-circle-notch fa-spin"></i> শীট থেকে ডেটা লোড হচ্ছে...';}
+function setSheetStatus(elId, ok, msg) {
+  var el=document.getElementById(elId); if(!el) return;
+  el.className="sheet-verify "+(ok?"ok":"err");
+  el.innerHTML=(ok?'<i class="fa-solid fa-circle-check"></i> ':'<i class="fa-solid fa-triangle-exclamation"></i> ')+esc(msg);
+}
 
+async function loadFinancial(){
+  var el=document.getElementById("f-sheetStatus");
+  if(el){el.className="sheet-verify checking";el.innerHTML='<i class="fa-solid fa-circle-notch fa-spin"></i> শীট থেকে ডেটা লোড হচ্ছে...';}
   var res=await api("getTransactions");
-  if(!res.success){
-    setSheetStatus("f-sheetStatus",false,"শীট সংযোগ ব্যর্থ: "+(res.message||"অজানা ত্রুটি"));
-    return;
-  }
+  if(!res.success){setSheetStatus("f-sheetStatus",false,"শীট সংযোগ ব্যর্থ: "+(res.message||""));return;}
   allTx=res.transactions||[];
   setSheetStatus("f-sheetStatus",true,"শীট সংযুক্ত — "+allTx.length+" টি রেকর্ড লোড হয়েছে");
   renderFinancial();
@@ -978,7 +937,7 @@ function setFPeriod(p,btn){fPeriod=p;document.querySelectorAll("#view-financial 
 
 function filterByPeriod(list, period){
   var now=new Date();
-  if(period==="today"){var s=new Date(now.getFullYear(),now.getMonth(),now.getDate());return list.filter(function(t){return new Date(t.date)>=s});}
+  if(period==="today"){var s=new Date(now.getFullYear(),now.getMonth(),now.getDate());return list.filter(function(t){return new Date(t.date)>=s;});}
   if(period==="week")return list.filter(function(t){return new Date(t.date)>=new Date(now-7*864e5);});
   if(period==="month")return list.filter(function(t){var d=new Date(t.date);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();});
   if(period==="year")return list.filter(function(t){return new Date(t.date).getFullYear()===now.getFullYear();});
@@ -986,10 +945,11 @@ function filterByPeriod(list, period){
 }
 
 function renderFinancial(){
-  var f=filterByPeriod(allTx.filter(function(t){return t.type==="in"||t.type==="out"}), fPeriod);
-  var inc=f.filter(function(t){return t.type==="in"}),out=f.filter(function(t){return t.type==="out"});
+  var f=filterByPeriod(allTx.filter(function(t){return t.type==="in"||t.type==="out"}),fPeriod);
+  var inc=f.filter(function(t){return t.type==="in"}), out=f.filter(function(t){return t.type==="out"});
   var totIn=0,totOut=0;
-  inc.forEach(function(t){totIn+=parseFloat(t.amount)});out.forEach(function(t){totOut+=parseFloat(t.amount)});
+  inc.forEach(function(t){totIn+=parseFloat(t.amount)});
+  out.forEach(function(t){totOut+=parseFloat(t.amount)});
   var net=totIn-totOut;
   set("f-sumIn","৳ "+fmt(totIn));set("f-sumOut","৳ "+fmt(totOut));
   var ne=document.getElementById("f-sumNet");ne.textContent=(net>=0?"":"-")+"৳ "+fmt(Math.abs(net));ne.style.color=net>=0?"#4ade80":"#f87171";
@@ -1001,12 +961,11 @@ function renderFCol(elId,items,type){
   var c=document.getElementById(elId);
   if(!items.length){c.innerHTML='<div class="empty" style="padding:18px 8px">'+(type==="in"?"কোনো আয় নেই":"কোনো ব্যয় নেই")+"</div>";return;}
   var sign=type==="in"?"+":"-";
-  var isAdmin=session&&session.role==="admin";
   c.innerHTML=items.map(function(t){
     return '<div class="log-item"><div class="log-dot '+type+'"></div>'+
       '<div class="log-inf"><strong>'+esc(t.reason)+'</strong><small>'+t.date+'</small></div>'+
       '<div class="log-rt"><div class="log-amt '+type+'">'+sign+'৳'+fmt(t.amount)+'</div>'+
-      (isAdmin?'<div class="log-actions">'+
+      (IS_ADMIN?'<div class="log-actions">'+
         '<button class="btn btn-gh" style="min-height:26px;padding:3px 9px;font-size:11px;" onclick="openEditModal(\''+t.id+'\',\''+type+'\',\''+esc(t.reason)+'\',\''+t.amount+'\')">✏</button>'+
         '<button class="btn btn-r" style="min-height:26px;padding:3px 9px;font-size:11px;" onclick="delTx(\''+t.id+'\')">🗑</button></div>':"")+
       "</div></div>";
@@ -1014,6 +973,7 @@ function renderFCol(elId,items,type){
 }
 
 async function addTx(type){
+  if(!IS_ADMIN){toast("শুধুমাত্র Admin এটি করতে পারবেন।","error");return;}
   var user=document.getElementById("f-user").value.trim();
   var amount=parseFloat(document.getElementById("f-amount").value);
   var note=document.getElementById("f-note").value.trim();
@@ -1021,7 +981,7 @@ async function addTx(type){
   var reason=note?user+": "+note:user;
   var res=await api("addTransaction",{type:type,reason:reason,amount:amount,username:user});
   if(res.success){
-    toast(type==="in"?"আয় যোগ ✅ শীটে সেভ হয়েছে":"ব্যয় যোগ ✅ শীটে সেভ হয়েছে","success");
+    toast((type==="in"?"আয় যোগ":"ব্যয় যোগ")+" ✅ শীটে সেভ হয়েছে","success");
     document.getElementById("f-user").value="";
     document.getElementById("f-amount").value="";
     document.getElementById("f-note").value="";
@@ -1030,6 +990,7 @@ async function addTx(type){
 }
 
 function openEditModal(id,type,reason,amt){
+  if(!IS_ADMIN){toast("শুধুমাত্র Admin এটি করতে পারবেন।","error");return;}
   set("em-id",id);set("em-type",type);
   document.getElementById("em-reason").value=reason;
   document.getElementById("em-amt").value=amt;
@@ -1038,7 +999,8 @@ function openEditModal(id,type,reason,amt){
 function closeModal(id){document.getElementById(id||"editModal").classList.remove("open");}
 
 async function saveEdit(){
-  var id=document.getElementById("em-id").value,type=document.getElementById("em-type").value;
+  if(!IS_ADMIN) return;
+  var id=document.getElementById("em-id").value, type=document.getElementById("em-type").value;
   var reason=document.getElementById("em-reason").value.trim();
   var amount=parseFloat(document.getElementById("em-amt").value);
   if(!reason||isNaN(amount)||amount<=0){toast("সঠিক তথ্য দিন।","error");return;}
@@ -1048,6 +1010,7 @@ async function saveEdit(){
 }
 
 async function delTx(id){
+  if(!IS_ADMIN){toast("শুধুমাত্র Admin এটি করতে পারবেন।","error");return;}
   if(!confirm("মুছবেন?"))return;
   var res=await api("deleteTransaction",{id:id});
   if(res.success){toast("মুছা ✅","success");await loadFinancial();}
@@ -1055,90 +1018,70 @@ async function delTx(id){
 }
 
 // ══════════════════════════════════════════════════
-//  COIN PAGE — আয়/ব্যয়ের মতো দুই কলাম লেজার
+//  COIN PAGE
 // ══════════════════════════════════════════════════
 async function loadCoin(){
-  // শীট স্ট্যাটাস রিসেট
-  var el = document.getElementById("c-sheetStatus");
+  var el=document.getElementById("c-sheetStatus");
   if(el){el.className="sheet-verify checking";el.innerHTML='<i class="fa-solid fa-circle-notch fa-spin"></i> শীট থেকে কয়েন ডেটা লোড হচ্ছে...';}
-
   var res=await api("getDashboard");
-  if(!res.success){
-    setSheetStatus("c-sheetStatus",false,"শীট সংযোগ ব্যর্থ: "+(res.message||"অজানা ত্রুটি"));
-    return;
-  }
-  coinLedger = res.coinLedger||[];
+  if(!res.success){setSheetStatus("c-sheetStatus",false,"শীট সংযোগ ব্যর্থ: "+(res.message||""));return;}
+  coinLedger=res.coinLedger||[];
   updateCoinHeroStats(res.coinStock||0);
   setSheetStatus("c-sheetStatus",true,"শীট সংযুক্ত — "+coinLedger.length+" টি কয়েন রেকর্ড");
   renderCoinPage();
 }
 
-// কয়েন পেজ পিরিয়ড ফিল্টার
-function setCoinPeriod(p, btn){
-  coinPeriod = p;
+function setCoinPeriod(p,btn){
+  coinPeriod=p;
   document.querySelectorAll("#c-ftabs .ftab").forEach(function(b){b.classList.remove("on")});
   btn.classList.add("on");
   renderCoinPage();
 }
 
 function renderCoinPage(){
-  var filtered = filterByPeriod(coinLedger, coinPeriod);
-  var giveItems = filtered.filter(function(c){return c.direction==="give_coin";});
-  var takeItems = filtered.filter(function(c){return c.direction==="take_coin";});
-
-  // সামারি হিসাব
+  var filtered=filterByPeriod(coinLedger,coinPeriod);
+  var giveItems=filtered.filter(function(c){return c.direction==="give_coin";});
+  var takeItems=filtered.filter(function(c){return c.direction==="take_coin";});
   var totalGive=0, totalTake=0;
   filtered.forEach(function(c){
     var a=parseFloat(c.amount);
     if(c.direction==="give_coin") totalGive+=a;
     if(c.direction==="take_coin") totalTake+=a;
   });
-
-  set("c-sumGive", fmt(totalGive)+" 🪙");
-  set("c-sumTake", fmt(totalTake)+" 🪙");
-  set("c-giveCnt", giveItems.length);
-  set("c-takeCnt", takeItems.length);
-
-  // দুই কলাম রেন্ডার
-  var isAdmin = session && session.role==="admin";
-  document.getElementById("c-giveList").innerHTML = renderCoinCol(giveItems, "give_coin", isAdmin);
-  document.getElementById("c-takeList").innerHTML = renderCoinCol(takeItems, "take_coin", isAdmin);
+  set("c-sumGive",fmt(totalGive)+" 🪙");
+  set("c-sumTake",fmt(totalTake)+" 🪙");
+  set("c-giveCnt",giveItems.length);
+  set("c-takeCnt",takeItems.length);
+  document.getElementById("c-giveList").innerHTML=renderCoinCol(giveItems,"give_coin");
+  document.getElementById("c-takeList").innerHTML=renderCoinCol(takeItems,"take_coin");
 }
 
-function renderCoinCol(items, direction, isAdmin){
-  if(!items.length){
-    return '<div class="empty" style="padding:18px 8px">'+(direction==="give_coin"?"কোনো দেওয়া নেই":"কোনো নেওয়া নেই")+'</div>';
-  }
-  var sign = direction==="give_coin" ? "+" : "-";
+function renderCoinCol(items,direction){
+  if(!items.length) return '<div class="empty" style="padding:18px 8px">'+(direction==="give_coin"?"কোনো দেওয়া নেই":"কোনো নেওয়া নেই")+'</div>';
+  var sign=direction==="give_coin"?"+":"-";
   return items.map(function(c){
     return '<div class="log-item">'+
       '<div class="log-dot '+direction+'"></div>'+
-      '<div class="log-inf">'+
-        '<strong>'+esc(c.targetUser)+'</strong>'+
-        '<small>'+(c.note?esc(c.note)+' · ':'')+c.date+'</small>'+
-      '</div>'+
-      '<div class="log-rt">'+
-        '<div class="log-amt '+direction+'">'+sign+fmt(c.amount)+'🪙</div>'+
-        (isAdmin?
-          '<div class="log-actions">'+
-          '<button class="btn btn-gh" style="min-height:26px;padding:3px 9px;font-size:11px;" onclick="openCoinEditModal(\''+c.id+'\',\''+direction+'\',\''+esc(c.targetUser)+'\',\''+c.amount+'\',\''+esc(c.note||'')+'\')">✏</button>'+
-          '<button class="btn btn-r" style="min-height:26px;padding:3px 9px;font-size:11px;" onclick="delCoin(\''+c.id+'\')">🗑</button>'+
-          '</div>'
-        :'')+
-      '</div>'+
-    '</div>';
+      '<div class="log-inf"><strong>'+esc(c.targetUser)+'</strong>'+
+      '<small>'+(c.note?esc(c.note)+' · ':'')+c.date+'</small></div>'+
+      '<div class="log-rt"><div class="log-amt '+direction+'">'+sign+fmt(c.amount)+'🪙</div>'+
+      (IS_ADMIN?'<div class="log-actions">'+
+        '<button class="btn btn-gh" style="min-height:26px;padding:3px 9px;font-size:11px;" onclick="openCoinEditModal(\''+c.id+'\',\''+direction+'\',\''+esc(c.targetUser)+'\',\''+c.amount+'\',\''+esc(c.note||'')+'\')">✏</button>'+
+        '<button class="btn btn-r" style="min-height:26px;padding:3px 9px;font-size:11px;" onclick="delCoin(\''+c.id+'\')">🗑</button>'+
+      '</div>':'')+
+      '</div></div>';
   }).join("");
 }
 
-// কয়েন দেওয়া / নেওয়া টগল
 function setDistDir(d){
+  if(!IS_ADMIN) return;
   distDir=d;
   document.getElementById("c-giveBtn").className="coin-dir-btn "+(d==="give"?"give-active":"inactive");
   document.getElementById("c-takeBtn").className="coin-dir-btn "+(d==="take"?"take-active":"inactive");
 }
 
-// স্টক আপডেট
 async function updateStock(){
+  if(!IS_ADMIN){toast("শুধুমাত্র Admin এটি করতে পারবেন।","error");return;}
   var amt=parseFloat(document.getElementById("c-stockAmt").value);
   var reason=document.getElementById("c-stockReason").value.trim();
   if(isNaN(amt)||amt===0||!reason){toast("পরিমাণ ও কারণ দিন।","error");return;}
@@ -1151,71 +1094,57 @@ async function updateStock(){
   } else toast(res.message,"error");
 }
 
-// কয়েন বণ্টন
 async function distribute(){
+  if(!IS_ADMIN){toast("শুধুমাত্র Admin এটি করতে পারবেন।","error");return;}
   var targetUser=document.getElementById("c-user").value.trim();
   var amount=parseFloat(document.getElementById("c-amt").value);
   var note=document.getElementById("c-note").value.trim();
   if(!targetUser||isNaN(amount)||amount<=0){toast("ইউজার ও পরিমাণ দিন।","error");return;}
-  var direction=distDir+"_coin";
   var btn=document.getElementById("c-distBtn");
   btn.innerHTML='<span class="spin"></span> সেভ হচ্ছে...';btn.disabled=true;
-  var res=await api("distributeCoin",{targetUser:targetUser,amount:amount,direction:direction,note:note,admin:session.username});
+  var res=await api("distributeCoin",{targetUser:targetUser,amount:amount,direction:distDir+"_coin",note:note,admin:session.username});
   if(res.success){
     toast("বণ্টন সম্পন্ন ✅ শীটে সেভ হয়েছে","success");
     document.getElementById("c-user").value="";
     document.getElementById("c-amt").value="";
     document.getElementById("c-note").value="";
-    await loadCoin();
-    buildTxUsers();
+    await loadCoin();buildTxUsers();
   } else toast(res.message,"error");
-  btn.innerHTML='<i class="fa-solid fa-paper-plane"></i> বণ্টন নিশ্চিত করুন';
-  btn.disabled=false;
+  btn.innerHTML='<i class="fa-solid fa-paper-plane"></i> বণ্টন নিশ্চিত করুন';btn.disabled=false;
 }
 
-// কয়েন এডিট মডাল
 function openCoinEditModal(id,dir,user,amt,note){
-  document.getElementById("ecm-id").value=id;
-  document.getElementById("ecm-dir").value=dir;
-  document.getElementById("ecm-user").value=user;
-  document.getElementById("ecm-amt").value=amt;
+  if(!IS_ADMIN){toast("শুধুমাত্র Admin এটি করতে পারবেন।","error");return;}
+  document.getElementById("ecm-id").value=id;document.getElementById("ecm-dir").value=dir;
+  document.getElementById("ecm-user").value=user;document.getElementById("ecm-amt").value=amt;
   document.getElementById("ecm-note").value=note;
   document.getElementById("editCoinModal").classList.add("open");
 }
 
 async function saveCoinEdit(){
-  var id=document.getElementById("ecm-id").value;
-  var dir=document.getElementById("ecm-dir").value;
+  if(!IS_ADMIN) return;
+  var id=document.getElementById("ecm-id").value, dir=document.getElementById("ecm-dir").value;
   var amt=parseFloat(document.getElementById("ecm-amt").value);
   var note=document.getElementById("ecm-note").value.trim();
   if(isNaN(amt)||amt<=0){toast("সঠিক পরিমাণ দিন।","error");return;}
   var res=await api("updateCoinLedger",{id:id,direction:dir,amount:amt,note:note});
-  if(res.success){
-    toast("আপডেট ✅ শীটে সেভ হয়েছে","success");
-    closeModal("editCoinModal");
-    await loadCoin();
-    buildTxUsers();
-  } else {
-    toast("আপডেট ব্যর্থ: "+res.message,"error");
-  }
+  if(res.success){toast("আপডেট ✅ শীটে সেভ হয়েছে","success");closeModal("editCoinModal");await loadCoin();buildTxUsers();}
+  else toast("আপডেট ব্যর্থ: "+res.message,"error");
 }
 
 async function delCoin(id){
+  if(!IS_ADMIN){toast("শুধুমাত্র Admin এটি করতে পারবেন।","error");return;}
   if(!confirm("এই কয়েন রেকর্ড মুছবেন?"))return;
   var res=await api("deleteCoinLedger",{id:id});
-  if(res.success){
-    toast("মুছা ✅","success");
-    await loadCoin();
-    buildTxUsers();
-  } else {
-    toast("মুছা ব্যর্থ: "+res.message,"error");
-  }
+  if(res.success){toast("মুছা ✅","success");await loadCoin();buildTxUsers();}
+  else toast("মুছা ব্যর্থ: "+res.message,"error");
 }
 
 // ══════════════════════════════════════════════════
 //  USERS
 // ══════════════════════════════════════════════════
 async function loadUsers(){
+  if(!IS_ADMIN) return;
   var res=await api("getUsers");
   if(!res.success)return;
   allUsers=res.users||[];
@@ -1237,6 +1166,7 @@ async function loadUsers(){
 }
 
 async function createUser(){
+  if(!IS_ADMIN) return;
   var username=document.getElementById("u-newName").value.trim();
   var password=document.getElementById("u-newPass").value;
   var role=document.getElementById("u-newRole").value;
@@ -1249,11 +1179,13 @@ async function createUser(){
 }
 
 async function toggleBlock(username){
+  if(!IS_ADMIN) return;
   var res=await api("toggleBlock",{username:username});
   if(res.success){toast(res.message,"success");await loadUsers();}else toast(res.message,"error");
 }
 
 async function deleteUser(username){
+  if(!IS_ADMIN) return;
   if(!confirm('"'+username+'" মুছবেন?'))return;
   var res=await api("deleteUser",{username:username});
   if(res.success){toast(res.message,"success");await loadUsers();}else toast(res.message,"error");
@@ -1265,17 +1197,12 @@ async function deleteUser(username){
 function set(id,val){var el=document.getElementById(id);if(el)el.innerHTML=String(val);}
 function fmt(n){return Number(n||0).toLocaleString("en-IN");}
 function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
-
 function toast(msg,type){
   var t=document.createElement("div");t.textContent=msg;
-  t.style.cssText="position:fixed;bottom:24px;left:50%;transform:translate(-50%,16px);"+
-    "background:"+(type==="error"?"rgba(220,38,38,.92)":"rgba(34,197,94,.92)")+";"+
-    "color:#fff;padding:11px 22px;border-radius:50px;font-size:13px;font-weight:600;"+
-    "z-index:9999;box-shadow:0 10px 28px rgba(0,0,0,.4);backdrop-filter:blur(10px);"+
-    "opacity:0;transition:opacity .25s,transform .25s;font-family:'Inter',sans-serif;max-width:90%;text-align:center;";
+  t.style.cssText="position:fixed;bottom:24px;left:50%;transform:translate(-50%,16px);background:"+(type==="error"?"rgba(220,38,38,.92)":"rgba(34,197,94,.92)")+";color:#fff;padding:11px 22px;border-radius:50px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 10px 28px rgba(0,0,0,.4);backdrop-filter:blur(10px);opacity:0;transition:opacity .25s,transform .25s;font-family:'Inter',sans-serif;max-width:90%;text-align:center;";
   document.body.appendChild(t);
   requestAnimationFrame(function(){t.style.opacity="1";t.style.transform="translate(-50%,0)";});
-  setTimeout(function(){t.style.opacity="0";t.style.transform="translate(-50%,16px)";setTimeout(function(){t.remove()},300)},2400);
+  setTimeout(function(){t.style.opacity="0";t.style.transform="translate(-50%,16px)";setTimeout(function(){t.remove()},300)},2600);
 }
 </script>
 </body>
