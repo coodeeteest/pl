@@ -14,34 +14,35 @@ body{font-family:'Inter',-apple-system,sans-serif;min-height:100vh;background:ra
 
 /* ── TOPBAR ── */
 #topbar{position:sticky;top:0;z-index:300;background:rgba(10,8,30,.92);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.10);box-shadow:0 4px 24px rgba(0,0,0,.4);width:100%;}
-.tb-top{padding:max(calc(env(safe-area-inset-top,0px)+6px),10px) 14px 0;}
-.tb-row1{height:42px;display:flex;align-items:center;justify-content:space-between;gap:6px;}
+
+/* Row 1: brand + user info */
+.tb-row1{height:44px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 14px;padding-top:max(env(safe-area-inset-top,0px),0px);}
 .brand{font-size:17px;font-weight:800;letter-spacing:-1px;color:#fff;text-decoration:none;display:flex;align-items:center;gap:5px;flex-shrink:0;}
 .brand-dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#818cf8,#c084fc);}
-/* 오른쪽 유저 정보 */
-.tb-r{display:flex;align-items:center;gap:5px;flex-shrink:0;}
-.u-info{display:flex;align-items:center;gap:5px;}
+
+/* top-right user chip */
+.tb-user-chip{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:40px;padding:4px 10px 4px 5px;flex-shrink:0;}
 .u-av{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;}
-.u-name{font-size:12px;font-weight:700;color:rgba(255,255,255,.88);white-space:nowrap;max-width:90px;overflow:hidden;text-overflow:ellipsis;}
+.u-name{font-size:12px;font-weight:700;color:rgba(255,255,255,.88);white-space:nowrap;max-width:80px;overflow:hidden;text-overflow:ellipsis;}
 .u-role-badge{font-size:9px;padding:2px 7px;border-radius:20px;font-weight:700;flex-shrink:0;white-space:nowrap;}
 .u-role-badge.admin{background:rgba(165,180,252,.15);color:#a5b4fc;border:1px solid rgba(165,180,252,.3);}
 .u-role-badge.user{background:rgba(52,211,153,.1);color:#34d399;border:1px solid rgba(52,211,153,.25);}
 
-/* ── NAV BAR — সব একই row, logout শেষে ── */
-.nav-bar{display:flex;align-items:center;gap:1px;padding:6px 6px 9px;overflow-x:auto;scrollbar-width:none;}
+/* ── NAV BAR — single row, all items + logout at end ── */
+.nav-bar{display:flex;align-items:center;gap:1px;padding:5px 6px 8px;overflow-x:auto;scrollbar-width:none;}
 .nav-bar::-webkit-scrollbar{display:none;}
-.nav-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 6px;border:none;background:transparent;color:rgba(255,255,255,.38);font-size:8.5px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;border-radius:10px;transition:all .15s;font-family:'Inter',sans-serif;flex-shrink:0;min-width:46px;}
-.nav-btn i{font-size:14px;transition:all .15s;}
+.nav-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 6px;border:none;background:transparent;color:rgba(255,255,255,.38);font-size:8px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;border-radius:10px;transition:all .15s;font-family:'Inter',sans-serif;flex-shrink:0;min-width:44px;}
+.nav-btn i{font-size:13px;transition:all .15s;}
 .nav-btn.active{background:rgba(99,102,241,.18);color:#a5b4fc;border:1px solid rgba(99,102,241,.3);}
 .nav-btn.active i{color:#818cf8;filter:drop-shadow(0 0 6px #6366f1);}
 .nav-btn:hover:not(.active){background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);}
 .nav-admin-only{display:none;}
-/* nav logout 버튼 */
-.nav-logout{display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 6px;border:none;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.18);color:#f87171;font-size:8.5px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;border-radius:10px;transition:all .15s;font-family:'Inter',sans-serif;flex-shrink:0;min-width:46px;}
-.nav-logout i{font-size:14px;}
-.nav-logout:hover{background:rgba(239,68,68,.18);color:#fca5a5;}
-/* 구분선 */
-.nav-sep{width:1px;height:28px;background:rgba(255,255,255,.1);flex-shrink:0;margin:0 2px;}
+/* separator */
+.nav-sep{width:1px;height:26px;background:rgba(255,255,255,.1);flex-shrink:0;margin:0 3px;}
+/* logout in nav */
+.nav-logout{display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 6px;border:1px solid rgba(239,68,68,.2);background:rgba(239,68,68,.07);color:#f87171;font-size:8px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;border-radius:10px;transition:all .15s;font-family:'Inter',sans-serif;flex-shrink:0;min-width:44px;}
+.nav-logout i{font-size:13px;}
+.nav-logout:hover{background:rgba(239,68,68,.18);color:#fca5a5;border-color:rgba(239,68,68,.4);}
 
 /* ── READ-ONLY BANNER ── */
 .readonly-banner{display:flex;align-items:center;gap:8px;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.18);border-radius:12px;padding:9px 14px;margin-bottom:12px;font-size:11px;color:rgba(253,230,138,.7);font-weight:500;}
@@ -269,7 +270,7 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
 .empty{text-align:center;padding:40px 20px;color:rgba(255,255,255,.25);font-size:13px;}
 @keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 4px currentColor)}50%{filter:drop-shadow(0 0 10px currentColor)}}
 
-/* ── MODAL (logout confirm) ── */
+/* ── MODAL ── */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .22s;}
 .overlay.open{opacity:1;pointer-events:all;}
 .modal{background:rgba(20,16,50,.95);backdrop-filter:blur(44px) saturate(180%);-webkit-backdrop-filter:blur(44px) saturate(180%);border:1px solid rgba(255,255,255,.2);border-radius:26px 26px 0 0;padding:20px 16px 28px;width:100%;max-width:520px;transform:translateY(100%);transition:transform .3s cubic-bezier(.32,1.1,.64,1);max-height:90vh;overflow-y:auto;box-shadow:0 -10px 40px rgba(0,0,0,.5);}
@@ -298,22 +299,16 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
 
 <!-- ══ TOPBAR ══ -->
 <div id="topbar">
-  <div class="tb-top">
-    <div class="tb-row1">
-      <div class="brand"><div class="brand-dot"></div>Premium<span style="color:#a5b4fc">Ledger</span></div>
-      <div class="tb-r">
-        <div class="u-pill">
-          <div class="u-av" id="tb-av">A</div>
-          <div class="u-name" id="tb-name">Admin</div>
-        </div>
-        <div class="u-role-badge admin" id="tb-role-badge">admin</div>
-        <div class="lb" onclick="confirmLogout()">
-          <i class="fa-solid fa-right-from-bracket"></i> লগআউট
-        </div>
-      </div>
+  <!-- Row 1: Brand + User chip -->
+  <div class="tb-row1">
+    <div class="brand"><div class="brand-dot"></div>Premium<span style="color:#a5b4fc">Ledger</span></div>
+    <div class="tb-user-chip">
+      <div class="u-av" id="tb-av">A</div>
+      <div class="u-name" id="tb-name">Admin</div>
+      <div class="u-role-badge admin" id="tb-role-badge">admin</div>
     </div>
   </div>
-  <!-- NAV -->
+  <!-- Row 2: Nav (all pages + logout) -->
   <nav class="nav-bar" id="navBar">
     <button class="nav-btn active" data-view="dashboard" onclick="navTo('dashboard',this)">
       <i class="fa-solid fa-chart-pie"></i>ড্যাশবোর্ড
@@ -329,6 +324,10 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
     </button>
     <button class="nav-btn nav-admin-only" data-view="users" onclick="navTo('users',this)">
       <i class="fa-solid fa-users"></i>ইউজার
+    </button>
+    <div class="nav-sep"></div>
+    <button class="nav-logout" onclick="confirmLogout()">
+      <i class="fa-solid fa-right-from-bracket"></i>লগআউট
     </button>
   </nav>
 </div>
@@ -408,7 +407,6 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
     <button class="ftab" onclick="setFPeriod('month',this)">মাস</button>
     <button class="ftab" onclick="setFPeriod('year',this)">বছর</button>
   </div>
-  <!-- Admin only: add form -->
   <div class="card" id="f-addForm" style="display:none;margin-bottom:12px;padding:15px;">
     <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:14px;">নতুন লেনদেন যোগ করুন</div>
     <div class="fld">
@@ -468,7 +466,6 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
     <button class="ftab" onclick="setCoinPeriod('month',this)">মাস</button>
     <button class="ftab" onclick="setCoinPeriod('year',this)">বছর</button>
   </div>
-  <!-- Admin: বণ্টন ফর্ম -->
   <div class="coin-form-card" id="c-addForm" style="display:none;">
     <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:14px;">কয়েন লেনদেন যোগ করুন</div>
     <div class="coin-dir-btns">
@@ -487,14 +484,12 @@ select.inp option{background:#1a1060;color:#e8eaf6;}
     <div class="fld"><label>নোট (ঐচ্ছিক)</label><input class="inp" type="text" id="c-note" placeholder="কারণ..."></div>
     <button class="btn btn-go btn-full" id="c-distBtn" onclick="distribute()"><i class="fa-solid fa-paper-plane"></i> বণ্টন নিশ্চিত করুন</button>
   </div>
-  <!-- Admin: স্টক -->
   <div class="coin-form-card" id="c-adminForm" style="display:none;">
     <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:14px;">কয়েন স্টক আপডেট</div>
     <div class="fld"><label>পরিমাণ (+ যোগ / - বিয়োগ)</label><input class="inp" type="number" id="c-stockAmt" placeholder="500 বা -100" inputmode="numeric"></div>
     <div class="fld"><label>কারণ</label><input class="inp" type="text" id="c-stockReason" placeholder="কারণ লিখুন..."></div>
     <button class="btn btn-go btn-full" onclick="updateStock()"><i class="fa-solid fa-coins"></i> স্টক আপডেট</button>
   </div>
-  <!-- দুই কলাম -->
   <div class="two-col">
     <div>
       <div class="col-h"><div class="cdot" style="background:#fbbf24;box-shadow:0 0 5px #fbbf24"></div><div class="col-lbl">দেওয়া</div><span class="col-cnt" id="c-giveCnt">0</span></div>
@@ -676,7 +671,7 @@ async function api(action, params) {
 })();
 
 // ══════════════════════════════════════════════════
-//  AUTH GUARD — লগইন না থাকলে login.html এ পাঠাও
+//  AUTH GUARD
 // ══════════════════════════════════════════════════
 (function(){
   try { session = JSON.parse(sessionStorage.getItem("_pls")); } catch(e){}
@@ -730,18 +725,16 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.getElementById("c-adminForm").style.display    = "";
     document.querySelectorAll(".nav-admin-only").forEach(function(el){el.style.display="";});
   } else {
-    // User: শুধু দেখার ব্যানার
     var ids = ["user-readonly-banner","f-readonly-banner","c-readonly-banner"];
     ids.forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display="flex"; });
   }
 
-  // Dropdowns (admin শুধু ব্যবহার করে)
+  // Dropdowns
   if (IS_ADMIN) {
     setupDropdown("f-user","f-dd-list","f-dd-icon");
     setupDropdown("c-user","c-dd-list","c-dd-icon");
   }
 
-  // search Enter
   var inp = document.getElementById("tx-searchInp");
   if(inp) inp.addEventListener("keyup", function(e){ if(e.key==="Enter") txSearch(); });
 
@@ -770,7 +763,7 @@ async function checkApiStatus() {
 }
 
 // ══════════════════════════════════════════════════
-//  LOGOUT — confirm modal
+//  LOGOUT
 // ══════════════════════════════════════════════════
 function confirmLogout() {
   document.getElementById("logoutModal").classList.add("open");
